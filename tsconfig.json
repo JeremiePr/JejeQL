@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "lib": [
+            "ES2019",
+            "ES2021.String"
+        ],
+        "module": "commonjs",
+        "target": "ES2017",
+        "declaration": true,
+        "outDir": "./dist",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+    },
+    "include": [
+        "src/**/*.ts"
+    ]
+}
