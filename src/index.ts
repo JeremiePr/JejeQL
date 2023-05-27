@@ -1,5 +1,5 @@
 import { Predicate, PredicateNode } from './lib/deserializer';
-import { QueryOperator, getPredicatesFromQuery, getArrayFilteredByQuery, tryGetArrayFilteredByQuery } from './lib/exports';
+import { QueryOperator, getPredicatesFromQuery, getArrayFilteredByQuery, tryGetArrayFilteredByQuery, tryGetPredicatesFromQuery } from './lib/exports';
 
 export
 {
@@ -7,6 +7,7 @@ export
     PredicateNode,
     QueryOperator,
     getPredicatesFromQuery,
+    tryGetPredicatesFromQuery,
     getArrayFilteredByQuery,
     tryGetArrayFilteredByQuery,
 };

@@ -3,6 +3,19 @@ import { Predicate, PredicateNode, getPredicate } from './deserializer';
 
 const getPredicatesFromQuery = getPredicate;
 
+const tryGetPredicatesFromQuery = (query: string): { success: boolean, result: PredicateNode | null, error: any } =>
+{
+    try
+    {
+        const result = getPredicate(query);
+        return { success: true, result, error: null };
+    }
+    catch (error)
+    {
+        return { success: false, result: null, error };
+    }
+}
+
 const getArrayFilteredByQuery = <T>(array: Array<T>, query: string): Array<T> =>
 {
     const predicate = getPredicate(query);
@@ -30,6 +43,7 @@ export
     PredicateNode,
     QueryOperator,
     getPredicatesFromQuery,
+    tryGetPredicatesFromQuery,
     getArrayFilteredByQuery,
     tryGetArrayFilteredByQuery,
 };
