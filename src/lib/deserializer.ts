@@ -1,6 +1,8 @@
 export interface Predicate
 {
-    key: string;
+    property: string;
+    operator: string;
+    value: string | number | boolean;
     apply: (item: string | number | boolean) => boolean;
 }
 
@@ -126,5 +128,5 @@ function getPredicateEnd(query: string): Predicate
         return negation ? !result : result;
     };
 
-    return { key: property, apply };
+    return { property: property, operator, value, apply };
 }
