@@ -24,15 +24,15 @@ function getPredicateNode(query: string, comparator?: string): PredicateNode
 
     const entries = query.split(comparator);
 
-    if (entries.length === 1)
+    const childComparator = comparator === '|' ? '&' :
+        (comparator === '&' ? '¦' : '');
+
+    if (entries.length === 1 && !query.includes('|') && !query.includes('&') && !query.includes('¦'))
     {
         return getPredicateEnd(query);
     }
     else
     {
-        const childComparator = comparator === '|' ? '&' :
-            (comparator === '&' ? '¦' : '');
-
         return entries.map(entry => getPredicateNode(entry, childComparator));
     }
 }
