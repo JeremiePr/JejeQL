@@ -1,5 +1,5 @@
-import { runTests, theArray, theBoolean } from '@jeje-devs/plume-testing';
-import { getArrayFilteredByQuery, tryGetArrayFilteredByQuery } from './lib/exports';
+import { runTests, theArray, theBoolean, theObject } from '@jeje-devs/plume-testing';
+import { getArrayFilteredByQuery, tryGetArrayFilteredByQuery, tryGetPredicatesFromQuery } from './lib/exports';
 
 runTests({
 
@@ -33,6 +33,24 @@ runTests({
         const result1 = tryGetArrayFilteredByQuery(array, "Hello World!");
 
         theBoolean(result1.success).shouldBeFalse();
+    },
+
+    'TestArrayWithEmptyQueryStringValue': () =>
+    {
+        const items = [{ name: 'Something' }];
+
+        const query = `name *=* ''`;
+
+        const predicateResult = tryGetPredicatesFromQuery(query);
+
+        theBoolean(predicateResult.success).shouldBeTrue();
+        theObject(predicateResult.result).shouldNotBeNil();
+
+        const applyResult = tryGetArrayFilteredByQuery(items, query);
+
+        theBoolean(applyResult.success).shouldBeTrue();
+        theArray(applyResult.result).shouldHaveLength(1);
+        theArray(applyResult.result).shouldVerify(x => x[0].name === 'Something');
     }
 
 });
