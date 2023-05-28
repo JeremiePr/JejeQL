@@ -49,7 +49,7 @@ function checkPredicate(item: any, node: PredicateNode, level: '|' | '&' | '¦')
         {
             for (const n of node)
             {
-                if (Array.isArray(n)) throw new Error();
+                if (Array.isArray(n)) throw new Error('The third condition level must be an ending condition');
                 if (checkPredicateEnd(item, n)) return true;
             }
             return false;
@@ -62,22 +62,10 @@ function checkPredicateEnd(item: any, predicate: Predicate): boolean
     let value = item[predicate.property];
     if (!value) return false;
 
-    if (typeof (value) === 'string')
+    if (typeof value === 'string')
     {
         value = value.toLowerCase();
     }
 
     return predicate.apply(value);
-}
-
-function getProperties(item: any): { [key: string]: string | number | boolean }
-{
-    const properties: { [key: string]: string | number | boolean } = {};
-
-    for (const key of Object.keys(item))
-    {
-        properties[key] = item[key];
-    }
-
-    return properties;
 }
