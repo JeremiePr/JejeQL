@@ -1,6 +1,6 @@
 {
     "name": "@jeje-devs/jeje-ql",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "description": "Package translating custom query text into conditions and data",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -14,7 +14,6 @@
     },
     "scripts": {
         "build": "tsc",
-        "test": "tsc && node ./dist/test.js",
-        "publish": "rmdir /s /q \"./dist\" && tsc --sourceMap false && npm pack"
+        "test": "tsc --sourceMap true && node ./dist/test.js"
     }
 }

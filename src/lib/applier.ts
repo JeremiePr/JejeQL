@@ -15,10 +15,6 @@ export function apply<T extends Object>(input: Array<T>, predicate: PredicateNod
 
 
 
-// Private
-
-
-
 function checkPredicate(item: any, node: PredicateNode, level: '|' | '&' | '¦'): boolean
 {
     if (!Array.isArray(node))

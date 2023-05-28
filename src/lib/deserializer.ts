@@ -15,9 +15,6 @@ export function getPredicate(query: string): PredicateNode
 
 
 
-// Private
-
-
 const operators = ['=', '=*', '*=', '*=*', '>', '<', '>=', '<='];
 
 function getPredicateNode(query: string, comparator?: string): PredicateNode

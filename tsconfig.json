@@ -8,7 +8,6 @@
         "target": "ES2017",
         "declaration": true,
         "outDir": "./dist",
-        "sourceMap": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
     },
