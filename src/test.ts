@@ -1,5 +1,5 @@
 import { runTests, theArray, theBoolean, theObject } from '@jeje-devs/plume-testing';
-import { getArrayFilteredByQuery, tryGetArrayFilteredByQuery, tryGetPredicatesFromQuery } from './lib/exports';
+import { getArrayFilteredByQuery, getPredicatesFromQuery, tryGetArrayFilteredByQuery, tryGetPredicatesFromQuery } from './lib/exports';
 
 runTests({
 
@@ -51,6 +51,35 @@ runTests({
         theBoolean(applyResult.success).shouldBeTrue();
         theArray(applyResult.result).shouldHaveLength(1);
         theArray(applyResult.result).shouldVerify(x => x[0].name === 'Something');
+    },
+
+    'TestWithCountries': () =>
+    {
+        const countries = [
+            { name: 'Colombia', capital: 'Bogota', language: 'ES' },
+            { name: 'Venezuela', capital: 'Caracas', language: 'ES' },
+            { name: 'Ecuador', capital: 'Quito', language: 'ES' },
+            { name: 'Guyana', capital: 'Georgetown', language: 'EN' },
+            { name: 'Brazil', capital: 'Brasilia', language: 'PT' },
+            { name: 'Uruguay', capital: 'Montevideo', language: 'ES' },
+            { name: 'Argentina', capital: 'Buenos Aires', language: 'ES' },
+            { name: 'Chile', capital: 'Santiago', language: 'ES' }
+        ];
+
+        const query = `name = 'Argentina' | language = 'ES' & capital =* 'm' ¦ capital *= 'go'`;
+
+        const expected = [
+            { name: 'Uruguay', capital: 'Montevideo', language: 'ES' },
+            { name: 'Argentina', capital: 'Buenos Aires', language: 'ES' },
+            { name: 'Chile', capital: 'Santiago', language: 'ES' }
+        ];
+
+        const { success, result } = tryGetArrayFilteredByQuery(countries, query);
+
+        theBoolean(success).shouldBeTrue();
+        theObject(result).shouldNotBeNil();
+        theArray(result).shouldHaveLength(3);
+        theArray(result).shouldHaveAllItemsEqualPropertiesWith(expected, x => x.name, x => x.capital, x => x.language);
     }
 
 });
