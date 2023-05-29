@@ -1,6 +1,6 @@
 {
     "name": "@jeje-devs/jeje-ql",
-    "version": "1.4.10",
+    "version": "1.4.11",
     "description": "Package translating custom query text into conditions and data",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
