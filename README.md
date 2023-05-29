@@ -14,7 +14,7 @@
 JejeQL is a tool that can translate a query into a predicate and filter data.
 
 Example:
-```
+```ts
 import { tryGetArrayFilteredByQuery } from '@jeje-devs/jeje-ql';
 
 const countries = [
@@ -115,7 +115,7 @@ rooms < 3 ¦ rooms > 6
 ### Property names
 
 The properties in the query must have the name of the properties of the JS/TS object:
-```
+```ts
 const array = [{ aPropertyWithALongName: 5 }, { aPropertyWithALongName: 3 }];
 const query = `aPropertyWithALongName >= 4`;
 ```
@@ -143,7 +143,7 @@ hasACat = true
 
 You can use the method **getPredicatesFromQuery** which gives you an object containing predicates.
 The first level contains OR conditions, the second AND conditions and the third OR (highest priority) conditions.
-```
+```ts
 import { getPredicatesFromQuery } from '@jeje-devs/jeje-ql';
 
 const predicate = getPredicatesFromQuery(`name =* 'J'`);
@@ -154,7 +154,7 @@ You can also use the method **tryGetPredicatesFromQuery** which returns a result
 
 To get the filtered array, simply use the method **getArrayFilteredByQuery**. It filters the array with the query.
 If the query is not valid (syntax error), the array remains unfiltered:
-```
+```ts
 import { getArrayFilteredByQuery } from '@jeje-devs/jeje-ql';
 
 const unfiltered = [{ id: 1, name: 'Foo' }, { id: 2, name: 'Bar }];
