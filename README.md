@@ -158,7 +158,7 @@ If the query is not valid (syntax error), the array remains unfiltered:
 ```ts
 import { getArrayFilteredByQuery } from '@jeje-devs/jeje-ql';
 
-const unfiltered = [{ id: 1, name: 'Foo' }, { id: 2, name: 'Bar }];
+const unfiltered = [{ id: 1, name: 'Foo' }, { id: 2, name: 'Bar' }];
 const filtered = getArrayFilteredByQuery(unfiltered, `name = 'Foo'`);
 ```
 You can also use the method **tryGetArrayFilteredByQuery** which returns a result value showing the method it worked.
