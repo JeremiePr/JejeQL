@@ -1,7 +1,7 @@
 import { runTests, theArray, theBoolean, theObject } from '@jeje-devs/plume-testing';
 import { getArrayFilteredByQuery, tryGetArrayFilteredByQuery, tryGetPredicatesFromQuery } from './lib/exports';
 
-runTests({
+runTests<void>({
 
     'TestArrayWithValidQuery': () =>
     {
