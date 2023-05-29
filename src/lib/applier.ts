@@ -56,7 +56,7 @@ function checkPredicate(item: any, node: PredicateNode, level: '|' | '&' | '¦')
 function checkPredicateEnd(item: any, predicate: Predicate): boolean
 {
     let value = item[predicate.property];
-    if (!value) return false;
+    if (value == null) return false;
 
     if (typeof value === 'string')
     {
