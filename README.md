@@ -57,7 +57,7 @@ What gives the 'result' variable:
 ## Setup
 
 ```
-npm i @jeje-devs/jeje-ql
+npm install @jeje-devs/jeje-ql
 ```
 
 ## Usage
