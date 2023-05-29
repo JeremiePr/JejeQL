@@ -123,17 +123,17 @@ const query = `aPropertyWithALongName >= 4`;
 ### Comparison values
 
 The comparison values can have 3 types of values:
-* string
+**string**
 The value must be written between single quotes:
 ```
 name = 'Mendeleev'
 ```
-* number
+**number**
 The value must be written without quotes:
 ```
 sheepCount > 25
 ```
-* boolean
+**boolean**
 The value can be either 'true' or 'false', without quotes:
 ```
 hasACat = true

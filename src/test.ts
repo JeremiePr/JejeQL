@@ -1,5 +1,5 @@
 import { runTests, theArray, theBoolean, theObject } from '@jeje-devs/plume-testing';
-import { getArrayFilteredByQuery, getPredicatesFromQuery, tryGetArrayFilteredByQuery, tryGetPredicatesFromQuery } from './lib/exports';
+import { getArrayFilteredByQuery, tryGetArrayFilteredByQuery, tryGetPredicatesFromQuery } from './lib/exports';
 
 runTests({
 
