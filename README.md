@@ -161,7 +161,7 @@ import { getArrayFilteredByQuery } from '@jeje-devs/jeje-ql';
 const unfiltered = [{ id: 1, name: 'Foo' }, { id: 2, name: 'Bar' }];
 const filtered = getArrayFilteredByQuery(unfiltered, `name = 'Foo'`);
 ```
-You can also use the method **tryGetArrayFilteredByQuery** which returns a result value showing the method it worked.
+You can also use the method **tryGetArrayFilteredByQuery** which returns a result value showing if the method worked.
 
 ## Contributors
 
