@@ -64,50 +64,50 @@ npm i @jeje-devs/jeje-ql
 
 ### Comparison operators:
 
-**=**: Equals
+**=** Equals
 ```
 name = 'Harry Potter'
 ```
-**=\***: Starts with
+**=\*** Starts with
 ```
 name =* 'Har'
 ```
-**\*=**: Ends with
+**\*=** Ends with
 ```
 name *= 'tter'
 ```
-**\*=\***: Contains
+**\*=\*** Contains
 ```
 name *=* 'Pot'
 ```
-**>**: Higher
+**>** Higher
 ```
 population > 15000000
 ```
-**<**: Lower
+**<** Lower
 ```
 population < 70000000
 ```
-**>=**: Higher or equal
+**>=** Higher or equal
 ```
 atomicNumber >= 2
 ```
-**<=**: Lower or equal
+**<=** Lower or equal
 ```
 atomicNumber <= 6
 ```
 
 ### Logical operators:
 
-**|**: OR
+**|** OR
 ```
 id = 3 | id = 4
 ```
-* **&**: AND
+**&** AND
 ```
 firstName = 'John' & lastName = 'Doe'
 ```
-* **¦**: OR (highest priority)
+**¦** OR (highest priority)
 ```
 rooms < 3 ¦ rooms > 6
 ```
