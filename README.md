@@ -123,6 +123,7 @@ const query = `aPropertyWithALongName >= 4`;
 ### Comparison values
 
 The comparison values can have 3 types of values:
+
 **string**
 The value must be written between single quotes:
 ```
