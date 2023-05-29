@@ -1,4 +1,4 @@
-# PlumeTesting
+# JejeQL
 
 ## Table of contents
 
