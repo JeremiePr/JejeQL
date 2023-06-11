@@ -80,6 +80,19 @@ runTests<void>({
         theObject(result).shouldNotBeNil();
         theArray(result).shouldHaveLength(3);
         theArray(result).shouldHaveAllItemsEqualPropertiesWith(expected, x => x.name, x => x.capital, x => x.language);
+    },
+
+    'TestArrayWithQuotes': () =>
+    {
+        const items = [{ name: 'Normal' }, { name: 'Very\'Special' }];
+
+        const query = `name *=* '''`
+
+        const { success, result } = tryGetArrayFilteredByQuery(items, query);
+
+        theBoolean(success).shouldBeTrue();
+        theObject(result).shouldNotBeNil();
+        theArray(result).shouldHaveLength(1);
     }
 
 });

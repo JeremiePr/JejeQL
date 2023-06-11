@@ -66,7 +66,10 @@ function getPredicateEnd(query: string): Predicate
 
     if (rawValue.startsWith(`'`) && rawValue.endsWith(`'`))
     {
-        value = rawValue.replaceAll(`'`, '').toLowerCase();
+        value = rawValue;
+        value = value.substring(1);
+        value = value.substring(0, value.length - 1);
+        value = value.toLowerCase();
     }
     else
     {
