@@ -97,6 +97,25 @@ atomicNumber >= 2
 atomicNumber <= 6
 ```
 
+### Negation
+
+**!** Negation character
+
+Is not equal
+```
+name != 'James Bond'
+```
+
+Does not end with
+```
+name !*= 'ond'
+```
+
+Does not start with
+```
+name !=* 'Jam'
+```
+
 ### Logical operators:
 
 **|** OR

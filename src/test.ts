@@ -93,6 +93,34 @@ runTests<void>({
         theBoolean(success).shouldBeTrue();
         theObject(result).shouldNotBeNil();
         theArray(result).shouldHaveLength(1);
+    },
+
+    'TestWithEmptyString': () =>
+    {
+        const items = [{ name: 'Something' }, { name: '' }];
+
+        const query = `name != ''`;
+
+        const { success, result } = tryGetArrayFilteredByQuery(items, query);
+
+        theBoolean(success).shouldBeTrue();
+        theObject(result).shouldNotBeNil();
+        theArray(result).shouldHaveLength(1);
+        theArray(result).shouldVerify(arr => arr[0].name === 'Something');
+    },
+
+    'TestNegationEndsWith': () =>
+    {
+        const items = [{ name: 'Harry Potter' }, { name: 'James Bond' }];
+
+        const query = `name !*= 'tter'`;
+
+        const { success, result } = tryGetArrayFilteredByQuery(items, query);
+
+        theBoolean(success).shouldBeTrue();
+        theObject(result).shouldNotBeNil();
+        theArray(result).shouldHaveLength(1);
+        theArray(result).shouldVerify(arr => arr[0].name === 'James Bond');
     }
 
 });
